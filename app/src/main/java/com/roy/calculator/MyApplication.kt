@@ -5,9 +5,9 @@ import android.widget.Toast
 
 //TODO firebase
 //TODO ad
-//TODO  ad id manifest
+
+//TODO ad id manifest
 //TODO leak canary
-//TODO ic_launcher
 //TODO policy
 //TODO rate app
 //TODO share app
@@ -18,6 +18,7 @@ import android.widget.Toast
 
 //done
 //pkg name
+//ic_launcher
 
 class MyApplication : Application() {
 
