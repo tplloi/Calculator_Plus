@@ -24,8 +24,7 @@ class CalculatorViewModel(application: Application) : AndroidViewModel(applicati
             input = result
             result = ""
             return
-        }
-        else input = when (key) {
+        } else input = when (key) {
             "C" -> ""
             "back" -> if (input.isNotBlank()) input.dropLast(1) else ""
             "." -> if (input.isEmpty()) "0." else if (input.contains(".")) input else input + key

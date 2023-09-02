@@ -1,6 +1,7 @@
 package com.roy.calculator.viewmodels
 
 import android.app.Application
+import androidx.annotation.Keep
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.roy.calculator.logic.ConversionFactors
@@ -27,22 +28,38 @@ class ConverterViewModel(application: Application) : AndroidViewModel(applicatio
     suspend fun updateCategory(category: String) {
         withContext(Dispatchers.IO) {
             _optionsState.update {
-                allUnits().filter { it.category.name == category }
+                allUnits().filter {
+                    it.category.name == category
+                }
             }
-            _first.update { UnitState("", _optionsState.value[0]) }
-            _second.update { UnitState("", _optionsState.value[1]) }
+            _first.update {
+                UnitState(value = "", unit = _optionsState.value[0])
+            }
+            _second.update {
+                UnitState(value = "", unit = _optionsState.value[1])
+            }
         }
     }
 
     fun updateOption(first: Boolean, conversionUnit: ConversionUnit) {
-        if (first) _first.update { it?.copy(unit = conversionUnit) }
-        else _second.update { it?.copy(unit = conversionUnit) }
-        _first.value?.let { convert() }
+        if (first) _first.update {
+            it?.copy(unit = conversionUnit)
+        }
+        else _second.update {
+            it?.copy(unit = conversionUnit)
+        }
+        _first.value?.let {
+            convert()
+        }
     }
 
     private fun updateValue(first: Boolean, value: String) {
-        if (first) _first.update { it?.copy(value = value) }
-        else _second.update { it?.copy(value = value) }
+        if (first) _first.update {
+            it?.copy(value = value)
+        }
+        else _second.update {
+            it?.copy(value = value)
+        }
     }
 
     fun updateInput(key: String) {
@@ -77,15 +94,16 @@ class ConverterViewModel(application: Application) : AndroidViewModel(applicatio
                                 from = if (withFirst) f.unit else s.unit,
                                 to = if (withFirst) s.unit else f.unit
                             )
-                            updateValue(!withFirst, "$result")
+                            updateValue(first = !withFirst, value = "$result")
                         }
-                    } else updateValue(!withFirst, "")
+                    } else updateValue(first = !withFirst, value = "")
             }
         }
     }
 }
 
+@Keep
 data class UnitState(
     val value: String,
-    val unit: ConversionUnit
+    val unit: ConversionUnit,
 )
