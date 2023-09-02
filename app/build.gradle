@@ -69,4 +69,5 @@ dependencies {
 //    debugImplementation "androidx.compose.ui:ui-tooling:$project.compose_ui"
 //    //noinspection GradleDependency
 //    debugImplementation "androidx.compose.ui:ui-test-manifest:$project.compose_ui"
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
 }

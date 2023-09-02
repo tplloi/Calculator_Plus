@@ -6,20 +6,19 @@ import android.widget.Toast
 //TODO firebase
 //TODO ad
 
-//TODO ad id manifest
-//TODO leak canary
 //TODO policy
 //TODO rate app
 //TODO share app
 //TODO more app
-//TODO proguard
 //TODO keystore
 //TODO splash screen
 
 //done
 //pkg name
 //ic_launcher
-
+//ad id manifest
+//leak canary
+//proguard
 class MyApplication : Application() {
 
     override fun onCreate() {
