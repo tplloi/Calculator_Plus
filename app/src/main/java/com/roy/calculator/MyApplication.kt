@@ -14,6 +14,7 @@ import android.widget.Toast
 //TODO more app
 //TODO proguard
 //TODO keystore
+//TODO splash screen
 
 //done
 //pkg name
