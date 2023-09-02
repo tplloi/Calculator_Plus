@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package com.roy.calculator.navigation
 
 import androidx.compose.foundation.layout.Box
@@ -31,13 +29,13 @@ fun CalculatorApp() {
             onCategoryClick = {
                 scope.launch {
                     drawerState.close()
-                    val destination = when(it) {
+                    val destination = when (it) {
                         is Category.StandardCALCULATOR -> Screens.CalculatorScreen.route
                         is Category.ScientificCALCULATOR -> Screens.ScientificScreen.route
                         is Category.ProgrammerCALCULATOR -> Screens.ProgrammerCal.route
                         else -> "${Screens.ConverterScreen.route}/${it.name}"
                     }
-                    navController.navigate(destination, navOptions = navOptions {
+                    navController.navigate(route = destination, navOptions = navOptions {
                         popUpTo(0)
                     })
                 }

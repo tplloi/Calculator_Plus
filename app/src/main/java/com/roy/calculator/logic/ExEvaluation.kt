@@ -18,23 +18,23 @@ class ExEvaluation {
             } else if (tokens[i] == '(') ops.push(tokens[i]) else if (tokens[i] == ')') {
                 while (ops.peek() != '(') values.push(
                     applyOp(
-                        ops.pop(),
-                        values.pop(),
-                        values.pop()
+                        op = ops.pop(),
+                        b = values.pop(),
+                        a = values.pop()
                     )
                 )
                 ops.pop()
             } else if (tokens[i] == '+' || tokens[i] == '-' || tokens[i] == '*' || tokens[i] == '/') {
                 while (!ops.empty() &&
                     hasPrecedence(
-                        tokens[i],
-                        ops.peek()
+                        op1 = tokens[i],
+                        op2 = ops.peek()
                     )
                 ) values.push(
                     applyOp(
-                        ops.pop(),
-                        values.pop(),
-                        values.pop()
+                        op = ops.pop(),
+                        b = values.pop(),
+                        a = values.pop()
                     )
                 )
                 ops.push(tokens[i])
@@ -43,9 +43,9 @@ class ExEvaluation {
         }
         while (!ops.empty()) values.push(
             applyOp(
-                ops.pop(),
-                values.pop(),
-                values.pop()
+                op = ops.pop(),
+                b = values.pop(),
+                a = values.pop()
             )
         )
         return values.pop()

@@ -32,11 +32,11 @@ fun ConverterNumberPad(onKeyEvent: (String) -> Unit) {
         ) {
             ("7 8 9 back 4 5 6 CE 1 2 3 .").split(" ").forEach { key ->
                 item {
-                    CVNumberKey(key, onClick = onKeyEvent)
+                    CVNumberKey(key = key, onClick = onKeyEvent)
                 }
             }
             item(span = { GridItemSpan(3) }) {
-                CVNumberKey("0", onClick = onKeyEvent)
+                CVNumberKey(key = "0", onClick = onKeyEvent)
             }
         }
     }
@@ -57,8 +57,8 @@ fun CVNumberKey(
     ) {
         when (key) {
             "back" -> Icon(
-                ImageVector.vectorResource(R.drawable.ic_round_backspace_24),
-                "back",
+                imageVector = ImageVector.vectorResource(R.drawable.ic_round_backspace_24),
+                contentDescription = "back",
                 tint = MaterialTheme.colorScheme.secondary
             )
 

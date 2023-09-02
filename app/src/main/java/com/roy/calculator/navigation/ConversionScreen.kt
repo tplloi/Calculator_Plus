@@ -17,7 +17,7 @@ import com.roy.calculator.viewmodels.ConverterViewModel
 
 @Composable
 fun ConversionScreen(
-    category: String
+    category: String,
 ) {
     val viewModel: ConverterViewModel = viewModel()
     val options = viewModel.optionsState.collectAsState().value
@@ -33,10 +33,28 @@ fun ConversionScreen(
             verticalArrangement = Arrangement.spacedBy(5.dp)
         ) {
             first?.let {
-                UnitValue(it, options, onFocus = { viewModel.changeFrom(true) }) { c -> viewModel.updateOption(true, c) }
+                UnitValue(
+                    unitState = it,
+                    options = options,
+                    onFocus = {
+                        viewModel.changeFrom(true)
+                    }) { c ->
+                    viewModel.updateOption(
+                        first = true,
+                        conversionUnit = c
+                    )
+                }
             }
             second?.let {
-                UnitValue(it, options, onFocus = { viewModel.changeFrom(false) }) { c -> viewModel.updateOption(false, c) }
+                UnitValue(
+                    it,
+                    options,
+                    onFocus = { viewModel.changeFrom(false) }) { c ->
+                    viewModel.updateOption(
+                        first = false,
+                        conversionUnit = c
+                    )
+                }
             }
         }
         ConverterNumberPad(viewModel::updateInput)

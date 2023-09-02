@@ -26,21 +26,21 @@ fun CalculatorDrawer(selected: Category, onCategoryClick: (Category) -> Unit) {
         LazyColumn(contentPadding = PaddingValues(12.dp, 12.dp)) {
             item { AppTitle() }
             items(Category.calculators()) {
-                NavItem(selected == it, it, onCategoryClick)
+                NavItem(selected = selected == it, category = it, onClick = onCategoryClick)
             }
             item {
                 Divider(modifier = Modifier.padding(vertical = 14.dp))
             }
             item {
                 Text(
-                    "Converters",
+                    text = "Converters",
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(bottom = 16.dp, start = 10.dp, end = 10.dp)
                 )
             }
             items(categories) {
-                NavItem(selected == it, it, onCategoryClick)
+                NavItem(selected = selected == it, category = it, onClick = onCategoryClick)
             }
         }
     }
@@ -52,7 +52,7 @@ fun NavItem(selected: Boolean, category: Category, onClick: (Category) -> Unit) 
         selected = selected,
         modifier = Modifier.fillMaxWidth(),
         onClick = { onClick(category) },
-        label = { Text(category.name, style = MaterialTheme.typography.labelLarge) },
+        label = { Text(text = category.name, style = MaterialTheme.typography.labelLarge) },
         shape = MaterialTheme.shapes.extraLarge,
         icon = {
             Icon(
