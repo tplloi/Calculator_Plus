@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.ithoughts.dev.g3.calculator'
+    namespace 'com.roy.calculator'
     compileSdk 34
 
     defaultConfig {
