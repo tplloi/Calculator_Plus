@@ -8,11 +8,11 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.ithoughts.dev.g3.calculator"
+        applicationId "com.roy.calculator"
         minSdk 21
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 20230902
+        versionName "2023.09.02"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -50,7 +50,6 @@ dependencies {
     implementation "androidx.core:core-ktx:$project.androidx_core"
     implementation "androidx.appcompat:appcompat:$project.appcompat"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$project.lifecycle_version"
-
     implementation "androidx.compose.ui:ui:$project.compose_ui"
     implementation "androidx.compose.ui:ui-tooling-preview:$project.compose_ui"
     implementation "androidx.compose.material3:material3:$project.compose_material_3"
@@ -61,10 +60,13 @@ dependencies {
     implementation "androidx.activity:activity-compose:$project.activity_version"
     implementation "com.google.accompanist:accompanist-systemuicontroller:$project.accompanist_version"
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$project.compose_ui"
-    debugImplementation "androidx.compose.ui:ui-tooling:$project.compose_ui"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$project.compose_ui"
+//    testImplementation 'junit:junit:4.13.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+//    //noinspection GradleDependency
+//    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$project.compose_ui"
+//    //noinspection GradleDependency
+//    debugImplementation "androidx.compose.ui:ui-tooling:$project.compose_ui"
+//    //noinspection GradleDependency
+//    debugImplementation "androidx.compose.ui:ui-test-manifest:$project.compose_ui"
 }
