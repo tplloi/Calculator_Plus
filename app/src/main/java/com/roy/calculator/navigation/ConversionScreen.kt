@@ -47,8 +47,8 @@ fun ConversionScreen(
             }
             second?.let {
                 UnitValue(
-                    it,
-                    options,
+                    unitState = it,
+                    options = options,
                     onFocus = { viewModel.changeFrom(false) }) { c ->
                     viewModel.updateOption(
                         first = false,

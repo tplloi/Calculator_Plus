@@ -6,10 +6,6 @@ import android.widget.Toast
 //TODO firebase
 //TODO ad
 
-//TODO policy
-//TODO rate app
-//TODO share app
-//TODO more app
 //TODO keystore
 //TODO splash screen
 
@@ -19,6 +15,11 @@ import android.widget.Toast
 //ad id manifest
 //leak canary
 //proguard
+//policy
+//rate app
+//share app
+//more app
+//github
 class MyApplication : Application() {
 
     override fun onCreate() {

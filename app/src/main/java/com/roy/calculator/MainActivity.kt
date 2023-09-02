@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 onDispose {}
             }
             CalculatorTheme {
-                CalculatorApp()
+                CalculatorApp(this)
             }
         }
     }

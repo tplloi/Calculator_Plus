@@ -1,5 +1,6 @@
 package com.roy.calculator.navigation
 
+import android.app.Activity
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,12 +14,18 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navOptions
+import com.roy.calculator.MainActivity
+import com.roy.calculator.ext.moreApp
+import com.roy.calculator.ext.openBrowserPolicy
+import com.roy.calculator.ext.openUrlInBrowser
+import com.roy.calculator.ext.rateApp
+import com.roy.calculator.ext.shareApp
 import com.roy.calculator.logic.Category
 import com.roy.calculator.ui.CalculatorAppbar
 import kotlinx.coroutines.launch
 
 @Composable
-fun CalculatorApp() {
+fun CalculatorApp(activity: Activity) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     var selectedCategory by remember { mutableStateOf<Category>(Category.StandardCALCULATOR) }
     val navController = rememberNavController()
@@ -33,11 +40,38 @@ fun CalculatorApp() {
                         is Category.StandardCALCULATOR -> Screens.CalculatorScreen.route
                         is Category.ScientificCALCULATOR -> Screens.ScientificScreen.route
                         is Category.ProgrammerCALCULATOR -> Screens.ProgrammerCal.route
+                        is Category.RATE -> {
+                            activity.rateApp(activity.packageName)
+                            null
+                        }
+
+                        is Category.MORE -> {
+                            activity.moreApp()
+                            null
+                        }
+
+                        is Category.SHARE -> {
+                            activity.shareApp()
+                            null
+                        }
+
+                        is Category.GITHUB -> {
+                            activity.openUrlInBrowser("https://github.com/tplloi/Calculator_Plus/tree/dev")
+                            null
+                        }
+
+                        is Category.POLICY -> {
+                            activity.openBrowserPolicy()
+                            null
+                        }
+
                         else -> "${Screens.ConverterScreen.route}/${it.name}"
                     }
-                    navController.navigate(route = destination, navOptions = navOptions {
-                        popUpTo(0)
-                    })
+                    if (destination != null) {
+                        navController.navigate(route = destination, navOptions = navOptions {
+                            popUpTo(0)
+                        })
+                    }
                 }
             }
         )

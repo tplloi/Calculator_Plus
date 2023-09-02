@@ -33,6 +33,12 @@ sealed class Category(val factor: Double, val name: String, @DrawableRes val res
     )
 
     object FORCE : Category(factor = 1.0, name = "Force")
+
+    object RATE : Category(factor = 1.0, name = "Rate app")
+    object MORE : Category(factor = 1.0, name = "More app")
+    object SHARE : Category(factor = 1.0, name = "Share app")
+    object POLICY : Category(factor = 1.0, name = "Policy")
+    object GITHUB : Category(factor = 1.0, name = "Github")
     object LENGTH : Category(factor = 1.0, name = "Length", res = R.drawable.icon_length)
     object LUMINANCE : Category(factor = 1.0, name = "Luminance")
     object LUMINOUS_FLUX : Category(factor = 1.0, name = "Luminous flux")
@@ -112,7 +118,12 @@ sealed class Category(val factor: Double, val name: String, @DrawableRes val res
                 TORQUE,
                 LUMINOUS_FLUX,
                 LUMINANCE,
-                FORCE
+                FORCE,
+                RATE,
+                MORE,
+                SHARE,
+                GITHUB,
+                POLICY,
             )
         }
 
